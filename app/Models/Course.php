@@ -3,9 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Course extends Model
 {
+    use HasFactory;
+
+    protected $fillable = [
+        'course_key',
+        'title',
+        'cover',
+        'content',
+        'robotics_kit_id',
+    ];
+
     public function roboticsKit() {
         return $this->belongsTo(RoboticsKit::class);
     }
